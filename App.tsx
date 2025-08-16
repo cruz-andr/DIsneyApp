@@ -1,20 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { WaitTimesScreen } from './src/screens/WaitTimesScreen';
+import { useEffect } from 'react';
 
 export default function App() {
+  useEffect(() => {
+    console.log('[DEBUG] App.tsx: App component mounted');
+    console.log('[DEBUG] App.tsx: Environment:', {
+      platform: typeof window !== 'undefined' ? 'web' : 'native',
+      userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : 'N/A'
+    });
+  }, []);
+
+  console.log('[DEBUG] App.tsx: Rendering App component...');
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <>
+      <WaitTimesScreen />
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

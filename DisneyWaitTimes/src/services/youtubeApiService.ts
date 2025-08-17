@@ -1,8 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { JeopardyEpisode } from '../types';
 
-// YouTube API key from Google Cloud Console
-const YOUTUBE_API_KEY = 'AIzaSyCE3dRfnF4oBYKq8Lo5wM34MgtkfsDFLKE';
+// YouTube API key from environment variable
+const YOUTUBE_API_KEY = process.env.EXPO_PUBLIC_YOUTUBE_API_KEY || 'YOUR_API_KEY_HERE';
 
 // Inside The Magic channel ID 
 const CHANNEL_ID = 'UC2Wq6RPjQW0I2JJxaYZRNBQ'; // Inside The Magic channel

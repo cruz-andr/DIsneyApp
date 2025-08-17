@@ -144,3 +144,77 @@ export interface RecommendationProfile {
   totalSwipes: number;
   lastUpdated: Date;
 }
+
+// Disney Jeopardy types
+export interface JeopardyEpisode {
+  id: string;
+  videoId: string;
+  episodeNumber: number;
+  title: string;
+  description: string;
+  publishedAt: Date;
+  thumbnailUrl: string;
+  duration: string;
+  categories: string[];
+  isNew: boolean;
+  timeMapped: boolean;
+}
+
+export interface JeopardyQuestion {
+  id: string;
+  episodeId: string;
+  category: string;
+  categoryIndex: number;
+  value: number;
+  question: string;
+  answer: string;
+  isDailyDouble: boolean;
+  startTime: number; // seconds in video
+  endTime: number;
+  answerRevealTime: number;
+}
+
+export interface JeopardyTimeMap {
+  episodeId: string;
+  episodeNumber: number;
+  categories: string[];
+  questions: JeopardyQuestion[];
+  finalJeopardy: {
+    category: string;
+    question: string;
+    answer: string;
+    startTime: number;
+    thinkMusicStart: number;
+    answerRevealTime: number;
+  };
+  totalDuration: number;
+}
+
+export interface JeopardyGameSession {
+  id: string;
+  episodeId: string;
+  playerName: string;
+  score: number;
+  questionsAnswered: {
+    questionId: string;
+    userAnswer: string;
+    correct: boolean;
+    timeToAnswer: number;
+    pointsEarned: number;
+  }[];
+  gameMode: 'watch-along' | 'quick-play' | 'practice';
+  startedAt: Date;
+  completedAt?: Date;
+}
+
+export interface JeopardyUserProfile {
+  totalGamesPlayed: number;
+  totalScore: number;
+  averageScore: number;
+  favoriteCategories: Record<string, number>;
+  correctAnswerRate: number;
+  dailyDoubleSuccess: number;
+  finalJeopardySuccess: number;
+  episodesPlayed: string[];
+  achievements: string[];
+}

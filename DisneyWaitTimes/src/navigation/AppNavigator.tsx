@@ -8,6 +8,8 @@ import { WaitTimesScreen } from '../screens/WaitTimesScreen';
 import { AlertsScreen } from '../screens/AlertsScreen';
 import { MoreScreen } from '../screens/MoreScreen';
 import { NotificationsScreen } from '../screens/NotificationsScreen';
+import JeopardyLobbyScreen from '../screens/JeopardyLobbyScreen';
+import JeopardyVideoScreen from '../screens/JeopardyVideoScreen';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -37,6 +39,22 @@ const HomeStackScreen = () => (
         title: 'Wait Alerts',
         headerStyle: { backgroundColor: '#4a90e2' },
         headerTintColor: '#fff',
+      }}
+    />
+    <HomeStack.Screen 
+      name="JeopardyLobby" 
+      component={JeopardyLobbyScreen}
+      options={{ 
+        title: 'Disney Jeopardy',
+        headerStyle: { backgroundColor: '#6B46C1' },
+        headerTintColor: '#fff',
+      }}
+    />
+    <HomeStack.Screen 
+      name="JeopardyVideo" 
+      component={JeopardyVideoScreen}
+      options={{ 
+        headerShown: false,
       }}
     />
   </HomeStack.Navigator>

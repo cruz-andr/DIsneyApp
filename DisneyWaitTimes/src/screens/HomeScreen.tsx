@@ -14,6 +14,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 type HomeStackParamList = {
   HomeMain: undefined;
   Alerts: undefined;
+  JeopardyLobby: undefined;
 };
 
 type NavigationProp = StackNavigationProp<HomeStackParamList, 'HomeMain'>;
@@ -63,6 +64,24 @@ export const HomeScreen = () => {
             day: 'numeric' 
           })}</Text>
         </View>
+
+        <TouchableOpacity 
+          style={styles.jeopardySection}
+          onPress={() => navigation.navigate('JeopardyLobby')}
+        >
+          <View style={styles.jeopardyCard}>
+            <View style={styles.jeopardyContent}>
+              <Text style={styles.jeopardyEmoji}>🎯</Text>
+              <View style={styles.jeopardyTextContainer}>
+                <Text style={styles.jeopardyTitle}>Disney Jeopardy</Text>
+                <Text style={styles.jeopardySubtitle}>New episodes every Friday!</Text>
+              </View>
+            </View>
+            <View style={styles.jeopardyBadge}>
+              <Text style={styles.newEpisodeText}>NEW</Text>
+            </View>
+          </View>
+        </TouchableOpacity>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Park Overview</Text>
@@ -283,5 +302,55 @@ const styles = StyleSheet.create({
   statLabel: {
     fontSize: 14,
     color: '#666',
+  },
+  jeopardySection: {
+    paddingHorizontal: 20,
+    marginTop: 25,
+  },
+  jeopardyCard: {
+    backgroundColor: '#6B46C1',
+    borderRadius: 20,
+    padding: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    shadowColor: '#6B46C1',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+  jeopardyContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  jeopardyEmoji: {
+    fontSize: 40,
+    marginRight: 15,
+  },
+  jeopardyTextContainer: {
+    flex: 1,
+  },
+  jeopardyTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 4,
+  },
+  jeopardySubtitle: {
+    fontSize: 14,
+    color: '#E0D5F7',
+  },
+  jeopardyBadge: {
+    backgroundColor: '#FF6B6B',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 15,
+  },
+  newEpisodeText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
 });
